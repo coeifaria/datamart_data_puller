@@ -1,0 +1,23 @@
+# Scraped/downloaded raw exports — keep them local, never commit them
+datamart_out/raw/
+
+# Generated Python cache files
+__pycache__/
+*.py[cod]
+
+# Local/generated scraper outputs
+# Keep college_resolution.csv, manifest.csv, and tidy output available for review
+# unless they are explicitly generated as large local artifacts later.
+
+# Editor and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# Local environment/secrets
+.env
+.venv/
+venv/
