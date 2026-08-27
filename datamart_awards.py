@@ -499,7 +499,17 @@ def cmd_normalize(_args) -> None:
         for path in files:
             slug, _, yr = path.stem.partition("__")
             year = yr.replace("_", "-")
-            token = slug.replace("_", " ")
+            # cell_path() slugs tokens with re.sub(r"[^A-Za-z0-9]+", "_"), so
+            # "San Joaquin Delta" -> "San_Joaquin_Delta" and
+            # "Cerro Coso"       -> "Cerro_Coso".  Resolve the token by
+            # slugifying each resolution key and matching exactly, instead of
+            # blanket-restoring underscores to spaces (Cerro_Coso ->
+            # "Cerro_Coso" never matched token "Cerro Coso", so the raw slug
+            # leaked into the college column).
+            token = next(
+                (t for t in resolution if re.sub(r"[^A-Za-z0-9]+", "_", t).strip("_") == slug),
+                slug.replace("_", " "),
+            )
             college = resolution.get(token, token)
             award = ""
             reader = csv.reader(path.read_text(encoding="utf-8-sig",
