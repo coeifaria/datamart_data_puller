@@ -11,6 +11,10 @@ previous_version/
 *.twbx
 *.twbr
 ~$*
+.Rproj.user/
+
+# RStudio project file is machine-local
+*.Rproj
 
 # Generated Python cache files
 __pycache__/
