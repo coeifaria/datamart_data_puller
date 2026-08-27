@@ -1,0 +1,20 @@
+dashboard: DataVista-Data
+tab: DataVista TOP Table 
+data source: 
+*Central_Mother_Lode_2022_2024.csv
+** This is datavista data stacked
+* TOP_CTE_022025
+** TOP codes for CTE 
+
+dashboard: Overview
+tab: Overall
+* CVML_CTE_SuccessMetrics_2225
+** might be Datamart data
+
+dashboard: 1 Variable
+tab: demographic>district>college
+* CVML_CTE_SuccessMetrics_2225
+
+dashboard: 2 Variable
+tab: district>college>demographic
+* CVML_CTE_SuccessMetrics_2225
